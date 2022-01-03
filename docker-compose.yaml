@@ -1,0 +1,13 @@
+version: '4.0.1'
+services:
+  cassandra:
+    container_name: sparkify_cassandra
+    image: cassandra:latest
+    ports:
+      - "9042:9042"
+    environment:
+      - "MAX_HEAP_SIZE=256M"
+      - "HEAP_NEWSIZE=128M"
+    restart: always
+    volumes:
+      - ./cassandra_data:/var/lib/cassandra
